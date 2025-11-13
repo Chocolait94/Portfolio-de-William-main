@@ -1,56 +1,261 @@
 <!DOCTYPE html>
-<html lang="FR">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IrisTech - Futuristic Eyewear</title>
+    <title>IrisTech - Futuristic Eyewear | L'Avenir de la Vision</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(120deg, #000428, #004e92);
-            color: white;
-            overflow-x: hidden;
+        /* ========================================
+           VARIABLES CSS
+           ======================================== */
+        :root {
+            /* Couleurs principales */
+            --primary-color: #00ffcc;
+            --secondary-color: #00d4ff;
+            --accent-color: #ff00ff;
+            --dark-bg: #0a0e27;
+            --darker-bg: #060815;
+            --card-bg: rgba(15, 20, 40, 0.9);
+            
+            /* Couleurs de texte */
+            --text-primary: #ffffff;
+            --text-secondary: #b0c4de;
+            --text-muted: #6c7a89;
+            
+            /* Espacements */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            
+            /* Effets */
+            --glow-sm: 0 0 10px var(--primary-color);
+            --glow-md: 0 0 20px var(--primary-color);
+            --glow-lg: 0 0 30px var(--primary-color), 0 0 60px var(--primary-color);
+            
+            /* Polices */
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
         }
 
+        /* ========================================
+           RESET ET BASE
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fond animé avec particules */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 204, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* ========================================
+           HEADER & NAVIGATION
+           ======================================== */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(6, 8, 21, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--primary-color);
+            box-shadow: 0 5px 30px rgba(0, 255, 204, 0.3);
+            transition: all var(--transition-normal);
+        }
+
+        header.scrolled {
+            background: rgba(6, 8, 21, 0.98);
+            box-shadow: 0 5px 40px rgba(0, 255, 204, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 2px solid #00ffcc;
-            box-shadow: 0 2px 20px #00ffcc;
+            padding: 1.2rem 5%;
         }
 
-        header h1 {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--glow-md);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        .logo-icon i {
+            font-size: 1.8rem;
+            color: var(--dark-bg);
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .logo h1 {
+            font-family: var(--font-display);
             font-size: 2rem;
-            color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-shadow: var(--glow-sm);
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
         }
 
         nav a {
-            color: white;
+            color: var(--text-secondary);
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1rem;
-            transition: color 0.3s, text-shadow 0.3s;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.2), transparent);
+            transition: left var(--transition-slow);
+        }
+
+        nav a:hover::before {
+            left: 100%;
         }
 
         nav a:hover {
-            color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc;
+            color: var(--primary-color);
+            background: rgba(0, 255, 204, 0.1);
+            text-shadow: var(--glow-sm);
+            transform: translateY(-2px);
         }
 
+        nav a.active {
+            color: var(--primary-color);
+            background: rgba(0, 255, 204, 0.15);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+
+        /* Menu burger mobile */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: all var(--transition-normal);
+            box-shadow: var(--glow-sm);
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
         .hero {
-            text-align: center;
-            padding: 150px 20px;
-            background: url('futuristic-glasses-neon.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
             position: relative;
-            color: white;
+            overflow: hidden;
         }
 
+        /* Arrière-plan avec effet de grille futuriste */
         .hero::before {
             content: '';
             position: absolute;
@@ -58,141 +263,1429 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: 
+                linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .hero h2 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            z-index: 1;
-            position: relative;
-            text-shadow: 0 0 20px #00ffcc;
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
         }
 
         .hero p {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
-            z-index: 1;
-            position: relative;
-            text-shadow: 0 0 10px #00ffcc;
-        }
-
-        .hero a {
-            text-decoration: none;
-            background-color: #00ffcc;
-            color: black;
-            padding: 15px 30px;
-            border-radius: 30px;
             font-size: 1.2rem;
-            transition: background-color 0.3s, transform 0.3s;
-            z-index: 1;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-bg);
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 255, 204, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 255, 204, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.4);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.3) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(0, 212, 255, 0.1));
+            border-radius: 20px;
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            box-shadow: var(--glow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 204, 0.1), transparent);
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* ========================================
+           STATS SECTION
+           ======================================== */
+        .stats {
+            padding: 4rem 5%;
+            background: rgba(15, 20, 40, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 255, 204, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            transition: all var(--transition-normal);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 255, 204, 0.3);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-shadow: var(--glow-md);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ========================================
+           FEATURES SECTION
+           ======================================== */
+        .features {
+            padding: var(--spacing-xl) 5%;
             position: relative;
         }
 
-        .hero a:hover {
-            background-color: #00cc99;
-            transform: scale(1.1);
-        }
-
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            padding: 60px 10%;
-            background: linear-gradient(120deg, #002233, #004466);
-            box-shadow: 0 -10px 30px #00ffcc inset;
-        }
-
-        .feature {
+        .section-header {
             text-align: center;
-            max-width: 300px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 20px #00ffcc;
-            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 800px;
+            margin: 0 auto 4rem;
         }
 
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 40px #00ffcc;
-        }
-
-        .feature img {
-            width: 100px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px #00ffcc);
-        }
-
-        .feature h3 {
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px #00ffcc;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
+        .section-tag {
+            display: inline-block;
+            font-family: var(--font-display);
             font-size: 0.9rem;
-            border-top: 2px solid #00ffcc;
-            box-shadow: 0 -2px 20px #00ffcc;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(0, 255, 204, 0.1);
+            border-radius: 50px;
+            border: 1px solid var(--primary-color);
         }
 
-        footer a {
-            color: #00ffcc;
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform var(--transition-slow);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 60px rgba(0, 255, 204, 0.3);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--glow-md);
+            transition: all var(--transition-normal);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: var(--glow-lg);
+        }
+
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: var(--dark-bg);
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ========================================
+           CTA SECTION
+           ======================================== */
+        .cta-section {
+            padding: var(--spacing-xl) 5%;
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(0, 212, 255, 0.1));
+            border-top: 2px solid var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background: var(--darker-bg);
+            border-top: 2px solid var(--primary-color);
+            box-shadow: 0 -5px 30px rgba(0, 255, 204, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5% 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-shadow: var(--glow-sm);
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: all var(--transition-normal);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-5px);
+            box-shadow: var(--glow-md);
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: text-shadow 0.3s;
+            transition: all var(--transition-fast);
+            display: inline-block;
         }
 
-        footer a:hover {
-            text-shadow: 0 0 10px #00ffcc;
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 255, 204, 0.2);
+            padding: 1.5rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: text-shadow var(--transition-fast);
+        }
+
+        .footer-bottom a:hover {
+            text-shadow: var(--glow-sm);
+        }
+
+        /* ========================================
+           SCROLL TO TOP BUTTON
+           ======================================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--glow-md);
+            transition: all var(--transition-normal);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow-lg);
+        }
+
+        .scroll-top i {
+            font-size: 1.5rem;
+            color: var(--dark-bg);
+        }
+
+        /* ========================================
+           IMAGE LUNETTES IRISTECH - HERO
+           ======================================== */
+        .hero-glasses-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 204, 0.5),
+                0 0 60px rgba(0, 255, 204, 0.3),
+                0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Effet de glow animé au survol */
+        .hero-glasses-image:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 
+                0 0 40px rgba(0, 255, 204, 0.8),
+                0 0 80px rgba(0, 255, 204, 0.5),
+                0 15px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Overlay lumineux sur l'image */
+        .hero-glasses-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(0, 255, 204, 0.2),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            pointer-events: none;
+        }
+
+        .hero-glasses-image:hover::before {
+            animation: shine 1.5s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        /* Bordure néon animée */
+        .hero-glasses-image::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 15px;
+            background: linear-gradient(
+                45deg,
+                var(--primary-color),
+                var(--secondary-color),
+                var(--accent-color),
+                var(--primary-color)
+            );
+            background-size: 300% 300%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+            animation: gradientRotate 3s ease infinite;
+        }
+
+        .hero-glasses-image:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes gradientRotate {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Container pour l'image avec effets de particules */
+        .glasses-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        /* Effet de particules autour de l'image */
+        .glasses-image-container::before,
+        .glasses-image-container::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        .glasses-image-container::before {
+            top: -10px;
+            left: -10px;
+            background: radial-gradient(
+                circle at 30% 50%,
+                rgba(0, 255, 204, 0.3) 0%,
+                transparent 60%
+            );
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .glasses-image-container::after {
+            bottom: -10px;
+            right: -10px;
+            background: radial-gradient(
+                circle at 70% 50%,
+                rgba(0, 212, 255, 0.3) 0%,
+                transparent 60%
+            );
+            animation: pulse 3s ease-in-out infinite 1.5s;
+        }
+
+        /* Responsive - Tablettes */
+        @media screen and (max-width: 768px) {
+            .hero-glasses-image,
+            .glasses-image-container {
+                max-width: 320px;
+                margin: 1.5rem auto;
+            }
+        }
+
+        /* Responsive - Mobiles */
+        @media screen and (max-width: 480px) {
+            .hero-glasses-image,
+            .glasses-image-container {
+                max-width: 280px;
+                margin: 1rem auto;
+                border-radius: 12px;
+            }
+            
+            .hero-glasses-image {
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 204, 0.4),
+                    0 0 40px rgba(0, 255, 204, 0.2),
+                    0 8px 30px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* Version avec bordure animée en pointillés */
+        .hero-glasses-image-dashed {
+            width: 100%;
+            max-width: 400px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
+            transition: all var(--transition-normal);
+            position: relative;
+            padding: 5px;
+            background: 
+                linear-gradient(90deg, var(--primary-color) 50%, transparent 50%),
+                linear-gradient(90deg, var(--primary-color) 50%, transparent 50%),
+                linear-gradient(0deg, var(--primary-color) 50%, transparent 50%),
+                linear-gradient(0deg, var(--primary-color) 50%, transparent 50%);
+            background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+            background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+            background-position: left top, right bottom, left bottom, right top;
+            animation: borderDash 1s linear infinite;
+        }
+
+        @keyframes borderDash {
+            to {
+                background-position: 
+                    right top, 
+                    left bottom, 
+                    left top, 
+                    right bottom;
+            }
+        }
+
+        /* Style pour le loading/skeleton avant chargement de l'image */
+        .hero-glasses-image-skeleton {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            background: linear-gradient(
+                90deg,
+                rgba(0, 255, 204, 0.1) 25%,
+                rgba(0, 255, 204, 0.2) 50%,
+                rgba(0, 255, 204, 0.1) 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* Effet de reflet sur l'image */
+        .hero-glasses-image-with-reflection {
+            width: 100%;
+            max-width: 400px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.5);
+            transition: all var(--transition-normal);
+            position: relative;
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        .hero-glasses-image-with-reflection::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.3) 0%,
+                transparent 30%,
+                transparent 70%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            border-radius: 15px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .hero-glasses-image-with-reflection:hover::before {
+            opacity: 1;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
+        @media screen and (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 1;
+            }
+
+            .hero-visual {
+                order: 2;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: rgba(6, 8, 21, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: left var(--transition-slow);
+                padding: 2rem;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 6rem 5% 3rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image-container {
+                height: 350px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            :root {
+                font-size: 14px;
+            }
+
+            .nav-container {
+                padding: 1rem 5%;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           ANIMATIONS D'APPARITION
+           ======================================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Style pour l'image dans le hero visual */
+        .hero-image-container .hero-glasses-image {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 
+                0 0 40px rgba(0, 255, 204, 0.6),
+                0 0 80px rgba(0, 255, 204, 0.4),
+                0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: all var(--transition-normal);
+        }
+
+        .hero-image-container .hero-glasses-image:hover {
+            transform: scale(1.03);
+            box-shadow: 
+                0 0 50px rgba(0, 255, 204, 0.8),
+                0 0 100px rgba(0, 255, 204, 0.6),
+                0 25px 70px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Masquer le placeholder avec l'œil */
+        .hero-placeholder {
+            display: none;
+        }
+
+        /* Ajuster l'image pour mobile */
+        @media screen and (max-width: 768px) {
+            .hero-image-container .hero-glasses-image {
+                object-fit: contain;
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>IrisTech</h1>
-    <nav>
-        <a href="Accueil (1).html">Accueil</a>
-        <a href="Produitt.html">Produit</a>
-        <a href="Recrutemennt.html">Recrutement</a>
-        <a href="Iristech 3.html">Iristech</a>
-        <a href="A propos 1.html">A propos</a>
-    </nav>
-</header>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-glasses"></i>
+                </div>
+                <h1>IrisTech</h1>
+            </div>
+            
+            <nav id="nav">
+                <a href="Accueil (1).html" class="active">Accueil</a>
+                <a href="Produitt.html">Produits</a>
+                <a href="Iristech 3.html">Technologie</a>
+                <a href="Recrutemennt.html">Carrières</a>
+                <a href="A propos 1.html">À propos</a>
+            </nav>
 
-<section class="hero">
-    <h2>Bienvenue dans le future</h2>
-    <p>Faites l’expérience d’une innovation et d’un style inégalés avec les lunettes intelligentes de pointe d’IrisTech. Transformez votre façon de voir le monde aujourd'hui.</p>
-    <a href="#features">Découvrez plus</a>
-</section>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-<section id="features" class="features">
-    <div class="feature">
-        <img src="smart-design-icon-neon.png" alt="Smart Design">
-        <h3>Smart Design</h3>
-        <p>Elegant et léger, parfait pour tout occasion</p>
-    </div>
-    <div class="feature">
-        <img src="ar-vision-icon-neon.png" alt="AR Vision">
-        <h3>AR Vision</h3>
-        <p>Superpositions de réalité améliorée pour vous tenir informé en temps réel.</p>
-    </div>
-    <div class="feature">
-        <img src="long-battery-icon-neon.png" alt="Long Battery">
-        <h3>All-Day Battery</h3>
-        <p>Restez alimenté du lever au coucher du soleil grâce à la durée de vie prolongée de la batterie.</p>
-    </div>
-</section>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-subtitle">L'Avenir de la Vision</div>
+                <h2>Bienvenue dans le Futur</h2>
+                <p>
+                    Découvrez une nouvelle dimension avec les lunettes intelligentes IrisTech. 
+                    Innovation, style et technologie de pointe réunis pour transformer votre 
+                    perception du monde.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#features" class="btn btn-primary">
+                        <span>Découvrir</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                    <a href="Produitt.html" class="btn btn-secondary">
+                        <span>Nos Produits</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
 
-<footer>
-    <p>&copy; 2024 IrisTech. All rights reserved. | <a href="#contact">Contactez Nous</a></p>
-</footer>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-glow"></div>
+                    <!-- Remplacer le placeholder par l'image -->
+                    <img 
+                        src="Capture d'écran 2024-11-23 200354 1.png" 
+                        alt="Lunettes IrisTech futuristes avec réalité augmentée" 
+                        class="hero-glasses-image"
+                        loading="lazy"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; position: relative; z-index: 1;"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats fade-in">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Satisfaction Client</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Utilisateurs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24h</div>
+                <div class="stat-label">Autonomie</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Brevets</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="features">
+        <div class="section-header fade-in">
+            <div class="section-tag">Technologie Avancée</div>
+            <h2 class="section-title">Caractéristiques Exceptionnelles</h2>
+            <p class="section-description">
+                Découvrez les innovations qui font d'IrisTech le leader de la technologie portable
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>IA Intelligente</h3>
+                <p>
+                    Intelligence artificielle avancée pour une expérience personnalisée et intuitive. 
+                    Reconnaissance faciale, traduction en temps réel et assistance vocale.
+                </p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-vr-cardboard"></i>
+                </div>
+                <h3>Réalité Augmentée</h3>
+                <p>
+                    Superposition d'informations contextuelles dans votre champ de vision. 
+                    Navigation GPS, notifications et données en temps réel.
+                </p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-battery-full"></i>
+                </div>
+                <h3>Autonomie Maximale</h3>
+                <p>
+                    Batterie haute performance offrant jusqu'à 24 heures d'utilisation continue. 
+                    Charge rapide et gestion intelligente de l'énergie.
+                </p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-feather-alt"></i>
+                </div>
+                <h3>Design Léger</h3>
+                <p>
+                    Conception ultra-légère de 28g pour un confort optimal toute la journée. 
+                    Matériaux premium et ergonomie perfectionnée.
+                </p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Protection UV</h3>
+                <p>
+                    Protection complète contre les UV et la lumière bleue. 
+                    Verres photochromiques adaptatifs pour tous les environnements.
+                </p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>Connectivité 5G</h3>
+                <p>
+                    Connectivité ultra-rapide 5G, Bluetooth 5.2 et Wi-Fi 6. 
+                    Synchronisation instantanée avec tous vos appareils.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section fade-in">
+        <div class="cta-content">
+            <h2>Prêt à Voir le Futur ?</h2>
+            <p>
+                Rejoignez des milliers d'utilisateurs qui ont déjà adopté la révolution IrisTech. 
+                Commandez maintenant et bénéficiez d'une offre de lancement exclusive.
+            </p>
+            <div class="hero-buttons">
+                <a href="Produitt.html" class="btn btn-primary">
+                    <span>Commander Maintenant</span>
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="A propos 1.html" class="btn btn-secondary">
+                    <span>En Savoir Plus</span>
+                    <i class="fas fa-info-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>IrisTech</h3>
+                <p>
+                    Leader mondial de la technologie portable intelligente. 
+                    Nous créons l'avenir de la vision augmentée.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Produits</h4>
+                <ul>
+                    <li><a href="#">IrisTech Pro</a></li>
+                    <li><a href="#">IrisTech Lite</a></li>
+                    <li><a href="#">IrisTech Sport</a></li>
+                    <li><a href="#">Accessoires</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Entreprise</h4>
+                <ul>
+                    <li><a href="A propos 1.html">À propos</a></li>
+                    <li><a href="Recrutemennt.html">Carrières</a></li>
+                    <li><a href="#">Actualités</a></li>
+                    <li><a href="#">Investisseurs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Centre d'aide</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Garantie</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 IrisTech. Tous droits réservés. | 
+                <a href="#">Conditions d'utilisation</a> | 
+                <a href="#">Politique de confidentialité</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ========================================
+        // NAVIGATION
+        // ========================================
+        const header = document.getElementById('header');
+        const nav = document.getElementById('nav');
+        const mobileToggle = document.getElementById('mobileToggle');
+
+        // Effet scroll header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Menu mobile toggle
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Fermer le menu mobile au clic sur un lien
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // ========================================
+        // SCROLL TO TOP
+        // ========================================
+        const scrollTop = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========================================
+        // INTERSECTION OBSERVER - ANIMATIONS
+        // ========================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments avec la classe fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ========================================
+        // SMOOTH SCROLL
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ========================================
+        // ANIMATION DES COMPTEURS (STATS)
+        // ========================================
+        const animateCounter = (element, target, duration = 2000) => {
+            let current = 0;
+            const increment = target / (duration / 16);
+            const suffix = element.textContent.replace(/[0-9]/g, '');
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, 16);
+        };
+
+        // Observer pour les stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const text = statNumber.textContent;
+                    const number = parseInt(text.replace(/\D/g, ''));
+                    animateCounter(statNumber, number);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-item').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // ========================================
+        // PARALLAX EFFECT (Optionnel)
+        // ========================================
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-glow');
+            
+            parallaxElements.forEach(el => {
+                const speed = 0.5;
+                el.style.transform = `translate(-50%, calc(-50% + ${scrolled * speed}px))`;
+            });
+        });
+
+        // ========================================
+        // PRÉCHARGEMENT DES IMAGES
+        // ========================================
+        const preloadImages = () => {
+            const images = [
+                'smart-design-icon-neon.png',
+                'ar-vision-icon-neon.png',
+                'long-battery-icon-neon.png'
+            ];
+            
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        };
+
+        window.addEventListener('load', preloadImages);
+
+        // ========================================
+        // CONSOLE MESSAGE
+        // ========================================
+        console.log('%c🚀 IrisTech - Bienvenue dans le futur!', 
+            'color: #00ffcc; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00ffcc;');
+    </script>
 
 </body>
 </html>

@@ -1,48 +1,1115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irestech</title>
-    <link rel="stylesheet" href="Iristech 2.css">
-        
+    <title>IrisTech | A Better Sight of Your Future</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ========================================
+            VARIABLES CSS
+           ======================================== */
+        :root {
+            /* Couleurs principales */
+            --primary-color: #00ffcc;
+            --secondary-color: #00d4ff;
+            --accent-color: #ff00ff;
+            --gold-color: #d4af37;
+            --success-color: #4CAF50;
+            
+            /* Backgrounds */
+            --dark-bg: #0a0e27;
+            --darker-bg: #060815;
+            --card-bg: rgba(15, 20, 40, 0.9);
+            --card-hover: rgba(20, 25, 50, 0.95);
+            
+            /* Texte */
+            --text-primary: #ffffff;
+            --text-secondary: #b0c4de;
+            --text-muted: #6c7a89;
+            
+            /* Espacements */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            
+            /* Effets */
+            --glow-sm: 0 0 10px var(--primary-color);
+            --glow-md: 0 0 20px var(--primary-color);
+            --glow-lg: 0 0 30px var(--primary-color), 0 0 60px var(--primary-color);
+            --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.5);
+            
+            /* Polices */
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Bordures */
+            --radius-sm: 8px;
+            --radius-md: 15px;
+            --radius-lg: 20px;
+        }
+
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fond animé avec particules */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 204, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Grille futuriste en arrière-plan */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, rgba(0, 255, 204, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(0, 255, 204, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* ========================================
+           HEADER & NAVIGATION
+           ======================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(6, 8, 21, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--primary-color);
+            box-shadow: 0 5px 30px rgba(0, 255, 204, 0.3);
+            transition: all var(--transition-normal);
+        }
+
+        header.scrolled {
+            background: rgba(6, 8, 21, 0.98);
+            box-shadow: 0 5px 40px rgba(0, 255, 204, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--glow-md);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        .logo-icon i {
+            font-size: 1.8rem;
+            color: var(--dark-bg);
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .logo h1 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-shadow: var(--glow-sm);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .tagline {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            color: var(--gold-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            font-weight: 600;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+            transition: width var(--transition-normal);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            background: rgba(0, 255, 204, 0.1);
+            text-shadow: var(--glow-sm);
+        }
+
+        nav a:hover::before {
+            width: 80%;
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+            background: rgba(0, 255, 204, 0.15);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+
+        /* Barre de recherche */
+        .search-bar {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 0.7rem 1.2rem;
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            outline: none;
+            transition: all var(--transition-normal);
+            width: 200px;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+            background: rgba(0, 255, 204, 0.1);
+        }
+
+        .search-bar input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-bar button {
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .search-bar button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 30px rgba(0, 255, 204, 0.6);
+        }
+
+        /* Menu burger mobile */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: all var(--transition-normal);
+            box-shadow: var(--glow-sm);
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem 5% 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.15) 0%, transparent 70%);
+            animation: heroGlow 5s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            color: var(--gold-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            padding: 0.6rem 1.8rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50px;
+            border: 1px solid var(--gold-color);
+            animation: fadeInDown 1s ease-out;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gold-color);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-description {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-description p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           GALERIE D'IMAGES
+           ======================================== */
+        .gallery-section {
+            padding: var(--spacing-xl) 5%;
+            background: rgba(15, 20, 40, 0.3);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform var(--transition-slow);
+            z-index: 2;
+        }
+
+        .gallery-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-color);
+            box-shadow: 0 25px 70px rgba(0, 255, 204, 0.4);
+        }
+
+        .image-container {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(0, 212, 255, 0.1));
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+            filter: brightness(0.9);
+        }
+
+        .gallery-item:hover .image-container img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(6, 8, 21, 0.9) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .gallery-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: var(--glow-sm);
+        }
+
+        .image-info p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .image-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 204, 0.9);
+            color: var(--dark-bg);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+        }
+
+        .image-badge.new {
+            background: rgba(255, 0, 255, 0.9);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+        }
+
+        .image-badge.featured {
+            background: rgba(212, 175, 55, 0.9);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* ========================================
+           MISSION SECTION
+           ======================================== */
+        .mission-section {
+            padding: var(--spacing-xl) 5%;
+            background: rgba(15, 20, 40, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 255, 204, 0.2);
+            border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+        }
+
+        .mission-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-content h3 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mission-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mission-text p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            padding: 1.5rem;
+            background: rgba(0, 255, 204, 0.05);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-color);
+            transition: all var(--transition-normal);
+        }
+
+        .mission-text p:hover {
+            background: rgba(0, 255, 204, 0.1);
+            transform: translateX(10px);
+            border-left-color: var(--secondary-color);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background: var(--darker-bg);
+            border-top: 2px solid var(--primary-color);
+            box-shadow: 0 -5px 30px rgba(0, 255, 204, 0.2);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5% 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-shadow: var(--glow-sm);
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: all var(--transition-normal);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-5px);
+            box-shadow: var(--glow-md);
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            display: inline-block;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 255, 204, 0.2);
+            padding: 1.5rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: text-shadow var(--transition-fast);
+        }
+
+        .footer-bottom a:hover {
+            text-shadow: var(--glow-sm);
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
+        @media screen and (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: rgba(6, 8, 21, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: left var(--transition-slow);
+                padding: 2rem;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .search-bar {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .search-bar input {
+                flex: 1;
+                max-width: 300px;
+            }
+
+            .hero {
+                padding: 8rem 5% 3rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-container {
+                height: 280px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            :root {
+                font-size: 14px;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .tagline {
+                font-size: 0.65rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Iristech</h1>
-        <p>a better sight of your future</p>
-        
-        <!-- Navigation Bar -->
-        <nav>
-            <ul>
-                <a href="Accueil (1).html">Accueil</a>
-                <a href="Produitt.html">Produit</a>
-                <a href="Recrutemennt.html">Recrutement</a>
-                <a href="Iristech 3.html">Iristech</a>
-                <a href="A propos 1.html">A propos</a>
-            </ul>
-        </nav>
-        
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" placeholder="Rechercher...">
-            <button type="submit">Rechercher</button>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="Accueil (1).html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-glasses"></i>
+                    </div>
+                    <h1>IrisTech</h1>
+                </a>
+                <p class="tagline">A Better Sight of Your Future</p>
+            </div>
+            
+            <nav id="nav">
+                <ul>
+                    <li><a href="Accueil (1).html">Accueil</a></li>
+                    <li><a href="Produitt.html">Produits</a></li>
+                    <li><a href="Recrutemennt.html">Carrières</a></li>
+                    <li><a href="Iristech 3.html" class="active">IrisTech</a></li>
+                    <li><a href="A propos 1.html">À propos</a></li>
+                </ul>
+            </nav>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher...">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
-    </header>
 
-
-
-    <section>
-        <img src="Capture d'écran 2024-11-23 200354.png" alt="vue">
-        <img src="Capture d'écran 2024-11-23 200536.png" alt="vue">
-        <img src="undefined.png" alt="vue">
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">✨ Bienvenue chez IrisTech</div>
+            <h2>IrisTech</h2>
+            <p class="hero-subtitle">A Better Sight of Your Future</p>
+            <div class="hero-description">
+                <p>Welcome to IrisTech, where we blend innovation with vision.</p>
+                <p>Our mission is to shape a brighter future through cutting-edge technology.</p>
+                <p>Stay tuned for more updates!</p>
+            </div>
+        </div>
     </section>
-    <div>
-    <p>Welcome to Iristech, where we blend innovation with vision.</p>
-    <p>Our mission is to shape a brighter future through cutting-edge technology.</p>
-    <p>Stay tuned for more updates!</p>
-    </div>
+
+    <!-- GALERIE D'IMAGES -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <h3 class="section-title">Notre Galerie</h3>
+            <p class="section-subtitle">Découvrez nos produits innovants en action</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <!-- Image 1 -->
+            <div class="gallery-item">
+                <div class="image-badge featured">Featured</div>
+                <div class="image-container">
+                    <img src="Capture d'écran 2024-11-23 200354 1.png" alt="IrisTech Vision Pro">
+                    <div class="image-overlay">
+                        <div class="image-info">
+                            <h3>IrisTech Vision Pro</h3>
+                            <p>Expérience de réalité augmentée immersive</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="gallery-item">
+                <div class="image-badge new">New</div>
+                <div class="image-container">
+                    <img src="Capture d'écran 2024-11-23 200536 1.png" alt="IrisTech Smart Interface">
+                    <div class="image-overlay">
+                        <div class="image-info">
+                            <h3>Interface Intelligente</h3>
+                            <p>Contrôle intuitif par gestes et commande vocale</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="gallery-item">
+                <div class="image-badge">Innovation</div>
+                <div class="image-container">
+                    <img src="undefined.png" alt="IrisTech Future Technology" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%230a0e27%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%2300ffcc%22 text-anchor=%22middle%22 dy=%22.3em%22%3EIrisTech Innovation%3C/text%3E%3C/svg%3E'">
+                    <div class="image-overlay">
+                        <div class="image-info">
+                            <h3>Technologies du Futur</h3>
+                            <p>L'avenir de la vision augmentée</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION SECTION -->
+    <section class="mission-section">
+        <div class="mission-content">
+            <h3>Notre Vision</h3>
+            <div class="mission-text">
+                <p>
+                    <i class="fas fa-lightbulb" style="color: var(--primary-color); margin-right: 10px;"></i>
+                    Welcome to IrisTech, where we blend innovation with vision.
+                </p>
+                <p>
+                    <i class="fas fa-rocket" style="color: var(--secondary-color); margin-right: 10px;"></i>
+                    Our mission is to shape a brighter future through cutting-edge technology.
+                </p>
+                <p>
+                    <i class="fas fa-star" style="color: var(--gold-color); margin-right: 10px;"></i>
+                    Stay tuned for more updates!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>IrisTech</h3>
+                <p>
+                    Leader mondial de la technologie portable intelligente. 
+                    Nous créons l'avenir de la vision augmentée.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Produits</h4>
+                <ul>
+                    <li><a href="#">IrisTech Pro</a></li>
+                    <li><a href="#">IrisTech Sport</a></li>
+                    <li><a href="#">IrisTech Urban</a></li>
+                    <li><a href="#">Accessoires</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Entreprise</h4>
+                <ul>
+                    <li><a href="A propos 1.html">À propos</a></li>
+                    <li><a href="Recrutemennt.html">Carrières</a></li>
+                    <li><a href="#">Actualités</a></li>
+                    <li><a href="#">Investisseurs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Centre d'aide</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Garantie</a></li>
+                    <li><a href="#">CGV</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 IrisTech. Tous droits réservés. | 
+                <a href="#">Conditions d'utilisation</a> | 
+                <a href="#">Politique de confidentialité</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ========================================
+        // NAVIGATION
+        // ========================================
+        const header = document.getElementById('header');
+        const nav = document.getElementById('nav');
+        const mobileToggle = document.getElementById('mobileToggle');
+
+        // Effet scroll header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Menu mobile toggle
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Fermer menu mobile
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // ========================================
+        // SMOOTH SCROLL
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ========================================
+        // CONSOLE MESSAGE
+        // ========================================
+        console.log('%c✨ IrisTech - A Better Sight of Your Future', 
+            'color: #00ffcc; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00ffcc;');
+    </script>
+
 </body>
 </html>
