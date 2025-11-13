@@ -3,29 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>William DU - Portfolio BTS SIO SLAM</title>
+    <meta name="description" content="Portfolio de William DU - Étudiant en BTS SIO SLAM, développeur web passionné. Découvrez mon parcours, mes compétences et mes projets.">
+    <meta name="keywords" content="William DU, BTS SIO, SLAM, développeur web, portfolio, étudiant informatique, Paris">
+    <meta name="author" content="William DU">
+    
+    <!-- Preconnect pour optimiser le chargement -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="main_page.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lobster&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- Scripts -->
     <script src="scroll.js" defer></script>
+    
+    <title>William DU - Portfolio BTS SIO SLAM</title>
 </head>
 <body>
-    <!-- Vidéo de fond décorative -->
-    <video autoplay loop muted playsinline id="background-video">
+    <!-- Vidéo de fond -->
+    <video id="background-video" autoplay muted loop playsinline>
         <source src="video background/orange-train-at-sunset.1920x1080.mp4" type="video/mp4">
     </video>
-
-    <!-- Overlay pour améliorer la lisibilité -->
     <div class="video-overlay"></div>
 
-    <!-- Navigation améliorée avec menu mobile -->
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="#">William DU</a>
+                <a href="#" aria-label="Retour à l'accueil">William DU</a>
             </div>
             
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -36,36 +50,33 @@
                 <a href="#education" class="nav-link">Parcours</a>
                 <a href="#BTS" class="nav-link">BTS SIO</a>
                 <a href="#experience" class="nav-link">Expériences</a>
-                <a href="#skills" class="nav-link">Compétences</a>
+                <a href="skills.html" class="nav-link">Compétences</a>
                 <a href="#projects" class="nav-link">Projets</a>
-                <a href="#veille-technologique" class="nav-link">Veille Tech</a>
-                <a href="#documentation" class="nav-link">Documents</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="veille_techno.html#veille-technologique" class="nav-link">Veille Tech</a>
+                <a href="veille_techno.html#documentation" class="nav-link">Documents</a>
+                <a href="veille_techno.html#contact" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section améliorée -->
-    <section class="hero-section">
+    <!-- Hero Section -->
+    <header class="hero-section">
         <div class="hero-content">
             <div class="neon-text">
                 <span class="welcome-text">Bienvenue</span>
                 <span class="portfolio-text">sur mon Portfolio</span>
             </div>
             <p class="intro">Découvrez mon parcours, mes projets et comment me contacter !</p>
-            <div class="status-badge">
-                <i class="fas fa-rocket"></i>
-                <span>Site en accès anticipé</span>
-            </div>
-            <a href="#about" class="cta-button">
+            <a href="#about" class="cta-button" aria-label="Découvrir mon parcours">
                 Découvrir mon parcours
                 <i class="fas fa-arrow-down"></i>
             </a>
         </div>
-    </section>
+    </header>
 
+    <!-- Contenu principal -->
     <main class="main-content">
-        <!-- Section À propos améliorée -->
+        <!-- Section À propos -->
         <section id="about" class="content-section">
             <div class="section-container">
                 <div class="section-header">
@@ -75,7 +86,7 @@
                 
                 <div class="about-content">
                     <div class="profile-picture">
-                        <img src="img/William.jpg" alt="Photo de profil de William">
+                        <img src="img/William.jpg" alt="Photo de profil de William DU" loading="lazy">
                         <div class="profile-ring"></div>
                     </div>
                     
@@ -89,7 +100,7 @@
             </div>
         </section>
 
-        <!-- Section Parcours scolaire améliorée -->
+        <!-- Section Parcours scolaire -->
         <section id="education" class="content-section">
             <div class="section-container">
                 <div class="section-header">
@@ -98,41 +109,41 @@
                 </div>
                 
                 <div class="education-timeline">
-                    <div class="timeline-item">
+                    <article class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2022 - 2023</div>
                             <h3>Licence Portail Chimie Biologie</h3>
                             <p class="institution">UVSQ - Université de ST Quentin en Yvelines, Versailles</p>
-                            <img src="img/UVSQ_Logo.png" alt="UVSQ" class="institution-logo">
+                            <img src="img/UVSQ_Logo.png" alt="Logo UVSQ" class="institution-logo" loading="lazy">
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="timeline-item">
+                    <article class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2023 - 2024</div>
                             <h3>Licence Portail Biologie Informatique</h3>
                             <p class="institution">UVSQ - Université de ST Quentin en Yvelines, Versailles</p>
-                            <img src="img/UVSQ_Logo.png" alt="UVSQ" class="institution-logo">
+                            <img src="img/UVSQ_Logo.png" alt="Logo UVSQ" class="institution-logo" loading="lazy">
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="timeline-item active">
+                    <article class="timeline-item active">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2024 - 2026</div>
                             <h3>BTS SIO SLAM</h3>
                             <p class="institution">IPSSI Grande École Informatique, Paris XIIème</p>
-                            <img src="img/IPSSI-logo-300.jpg" alt="IPSSI" class="institution-logo">
+                            <img src="img/IPSSI-logo-300.jpg" alt="Logo IPSSI" class="institution-logo" loading="lazy">
                             <span class="current-badge">En cours</span>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Section BTS SIO améliorée -->
+        <!-- Section BTS SIO -->
         <section id="BTS" class="content-section">
             <div class="section-container">
                 <div class="section-header">
@@ -146,7 +157,7 @@
                     </div>
                     
                     <div class="bts-options">
-                        <div class="option-card slam-option">
+                        <article class="option-card slam-option">
                             <div class="option-header">
                                 <i class="fas fa-code"></i>
                                 <h3>SLAM</h3>
@@ -154,16 +165,16 @@
                             <h4>Solutions Logicielles et Applications Métiers</h4>
                             <p>Axée sur le développement d'applications, la programmation et la gestion de bases de données.</p>
                             <span class="my-choice">Mon choix actuel</span>
-                        </div>
+                        </article>
                         
-                        <div class="option-card sisr-option">
+                        <article class="option-card sisr-option">
                             <div class="option-header">
                                 <i class="fas fa-network-wired"></i>
                                 <h3>SISR</h3>
                             </div>
                             <h4>Solutions d'Infrastructure, Systèmes et Réseaux</h4>
                             <p>Axée sur l'administration des systèmes et réseaux, la sécurité informatique et la gestion des infrastructures.</p>
-                        </div>
+                        </article>
                     </div>
                     
                     <div class="bts-careers">
@@ -202,7 +213,7 @@
             </div>
         </section>
 
-        <!-- Section Expériences améliorée -->
+        <!-- Section Expériences -->
         <section id="experience" class="content-section">
             <div class="section-container">
                 <div class="section-header">
@@ -211,368 +222,204 @@
                 </div>
                 
                 <div class="experiences-grid">
-                    <div class="experience-card">
+                    <article class="experience-card">
                         <div class="experience-icon">
                             <i class="fas fa-bread-slice"></i>
                         </div>
                         <div class="experience-content">
                             <div class="experience-header">
                                 <h3>Stage d'observation de 3ème</h3>
-                                <span class="experience-date">Janvier 2019</span>
+                                <time class="experience-date" datetime="2019-01">Janvier 2019</time>
                             </div>
                             <p class="experience-company">Boulangerie "Chez Michel"</p>
                             <p class="experience-duration">1 semaine</p>
                             <div class="experience-mission">
                                 <strong>Mission :</strong> Préparation des viennoiseries et entretien de la boutique
                             </div>
-                            <a href="https://www.facebook.com/ChezMichelBoulangerieParis" target="_blank" class="experience-link">
-                                <img src="img/images.png" alt="Boulangerie">
+                            <a href="https://www.facebook.com/ChezMichelBoulangerieParis" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="experience-link"
+                                aria-label="Visiter la page Facebook de la Boulangerie Chez Michel">
+                                <img src="img/images.png" alt="Logo Boulangerie Chez Michel" loading="lazy">
                             </a>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="experience-card featured">
+                    <article class="experience-card featured">
                         <div class="experience-icon">
                             <i class="fas fa-laptop-code"></i>
                         </div>
                         <div class="experience-content">
                             <div class="experience-header">
                                 <h3>Stage Développement Web</h3>
-                                <span class="experience-date">Avril - Juin 2025</span>
+                                <time class="experience-date" datetime="2025-04">Avril - Juin 2025</time>
                             </div>
                             <p class="experience-company">Free S-Cool</p>
                             <p class="experience-duration">2 mois</p>
                             <div class="experience-mission">
                                 <strong>Mission :</strong> Création d'une interface graphique responsive et optimisation du site (HTML, CSS, JavaScript)
                             </div>
-                            <a href="stage 2.0/event.html" target="_blank" class="experience-link">
-                                <img src="img/Free S-Cool.png" alt="Free S-Cool">
+                            <a href="stage 2.0/event.html" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="experience-link"
+                                aria-label="Voir le projet Free S-Cool">
+                                <img src="img/Free S-Cool.png" alt="Logo Free S-Cool" loading="lazy">
                             </a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Section Compétences améliorée -->
-        <section id="skills" class="content-section">
+        <!-- Section Certifications -->
+        <section id="certification" class="content-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h1 class="section-title">Compétences Techniques</h1>
+                    <h1 class="section-title">Certifications</h1>
                     <div class="title-underline"></div>
                 </div>
                 
-                <p class="section-subtitle">Les langages et technologies que j'utilise pour mes projets</p>
-                
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="img/html-5.png" alt="HTML5">
+                <div class="certifications-grid">
+                    <article class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-certificate"></i>
                         </div>
-                        <h3>HTML5</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="img/css-3.png" alt="CSS3">
-                        </div>
-                        <h3>CSS3</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="img/js.png" alt="JavaScript">
-                        </div>
-                        <h3>JavaScript</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="img/php.png" alt="PHP">
-                        </div>
-                        <h3>PHP</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="img/sql.png" alt="SQL">
-                        </div>
-                        <h3>SQL</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <img src="img/python.png" alt="Python">
-                        </div>
-                        <h3>Python</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 65%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Projets améliorée -->
-        <section id="projects" class="content-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h1 class="section-title">Mes Projets</h1>
-                    <div class="title-underline"></div>
-                </div>
-                
-                <p class="section-subtitle">Découvrez quelques projets sur lesquels j'ai travaillé</p>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <a href="Iristech/Iristech/Accueil (1).html" target="_blank">
-                            <div class="project-image">
-                                <img src="img/undefined.png" alt="IrisTech">
-                                <div class="project-overlay">
-                                    <i class="fas fa-eye"></i>
-                                    <span>Voir le projet</span>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>IrisTech</h3>
-                                <p>Site vitrine futuriste</p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="project-card">
-                        <a href="https://portfolio-de-drazonia.vercel.app/" target="_blank">
-                            <div class="project-image">
-                                <img src="img/Sticker_PPG_20_The_Herta_02.png" alt="Portfolio Drazonia">
-                                <div class="project-overlay">
-                                    <i class="fas fa-eye"></i>
-                                    <span>Voir le projet</span>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Portfolio Drazonia</h3>
-                                <p>Portfolio personnel</p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="img/lovepik-bookstore-in-winter-.png" alt="Storebooks">
-                            <div class="project-overlay coming-soon">
-                                <i class="fas fa-clock"></i>
-                                <span>Bientôt disponible</span>
+                        <div class="certification-content">
+                            <h3>Mendix Rapid Developer</h3>
+                            <p class="certification-description">
+                                J'ai obtenu la certification <strong>Mendix</strong> qui m'avait été proposée par un proche familial travaillant dans le domaine de l'informatique.
+                            </p>
+                            <p class="certification-skills">
+                                Cette certification m'a permis de découvrir une nouvelle plateforme de développement low-code, et d'acquérir des compétences en création d'applications rapidement et efficacement.
+                            </p>
+                            <div class="certification-image-container">
+                                <img src="img/MendixRapidDeveloper-98649_page-0001.jpg" 
+                                    alt="Certificat Mendix Rapid Developer" 
+                                    class="certification-image"
+                                    loading="lazy">
                             </div>
                         </div>
-                        <div class="project-info">
-                            <h3>Storebooks</h3>
-                            <p>Application de gestion de livres</p>
-                        </div>
-                    </div>
+                    </article>
                     
-                    <div class="project-card">
-                        <a href="https://github.com/Chocolait94/jeu-du-pendu.git" target="_blank">
-                            <div class="project-image">
-                                <img src="img/bourreau.png" alt="Jeu du Pendu">
-                                <div class="project-overlay">
-                                    <i class="fas fa-eye"></i>
-                                    <span>Voir le code</span>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Jeu du Pendu</h3>
-                                <p>Jeu interactif en Python</p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="project-card">
-                        <a href="Pokedex/index.html" target="_blank">
-                            <div class="project-image">
-                                <img src="img/shared image.jpeg" alt="Pokedex">
-                                <div class="project-overlay">
-                                    <i class="fas fa-eye"></i>
-                                    <span>Voir le projet</span>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Pokédex</h3>
-                                <p>Application web interactive</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Veille Technologique améliorée -->
-        <section id="veille-technologique" class="content-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h1 class="section-title">Veille Technologique</h1>
-                    <div class="title-underline"></div>
-                </div>
-                
-                <div class="veille-content">
-                    <div class="veille-intro">
-                        <div class="warning-icon">
+                    <article class="certification-card">
+                        <div class="certification-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3>Sensibilisation aux logiciels de triche</h3>
-                        <p>J'ai présenté ma veille technologique sur les logiciels de triche. Cette présentation a pour but de sensibiliser aux dangers que ces logiciels peuvent représenter pour votre ordinateur et vos données personnelles.</p>
-                    </div>
-                    
-                    <div class="video-container">
-                        <video src="video background/Logiciels_Triche_Presentation 1.mp4" controls aria-label="Présentation sur les logiciels de triche"></video>
-                    </div>
-                    
-                    <div class="sources-section">
-                        <h3>Sources utilisées</h3>
-                        <div class="sources-grid">
-                            <a href="https://www.cheatengine.org/" target="_blank" class="source-link">
-                                <i class="fas fa-link"></i>
-                                Cheat Engine
-                            </a>
-                            <a href="https://www.wemod.com/" target="_blank" class="source-link">
-                                <i class="fas fa-link"></i>
-                                WeMod
-                            </a>
-                            <a href="https://www.artmoney.ru/" target="_blank" class="source-link">
-                                <i class="fas fa-link"></i>
-                                ArtMoney
-                            </a>
-                            <a href="https://www.macrorecorder.com/" target="_blank" class="source-link">
-                                <i class="fas fa-link"></i>
-                                Macro Recorder
-                            </a>
-                            <a href="https://aimware.net/" target="_blank" class="source-link">
-                                <i class="fas fa-link"></i>
-                                Aimware
-                            </a>
-                            <a href="https://www.unknowncheats.me/" target="_blank" class="source-link">
-                                <i class="fas fa-link"></i>
-                                UnknownCheats
-                            </a>
-                            <a href="https://www.engineowning.to/" target="_blank" class="source-link">
-                                <i class="fas fa-link"></i>
-                                EngineOwning
-                            </a>
+                        <div class="certification-content">
+                            <h3>Google Play It Safe: Manage Security Risks</h3>
+                            <p class="certification-description">
+                                J'ai également obtenu une autre certification de <strong>Google Play It Safe: Manage Security Risks</strong> m'apprenant les bonnes pratiques de sécurité liées à la Cybersécurité.
+                            </p>
+                            <p class="certification-skills">
+                                Cette certification m'a été très utile pour comprendre les enjeux de la sécurité informatique dans le développement d'applications mobiles.
+                            </p>
+                            <div class="certification-image-container">
+                                <img src="img/Coursera ZTR3C0KPNAO6_page-0001.jpg" 
+                                     alt="Certificat Google Play It Safe Cybersécurité" 
+                                     class="certification-image"
+                                     loading="lazy">
+                            </div>
                         </div>
-                        
-                        <div class="disclaimer">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <p>Ces logiciels sont principalement utilisés dans les jeux FPS pour obtenir des avantages injustes. Leur utilisation est interdite par la plupart des éditeurs de jeux et peut entraîner un bannissement permanent.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Documentation améliorée -->
-        <section id="documentation" class="content-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h1 class="section-title">Documentation & CV</h1>
-                    <div class="title-underline"></div>
-                </div>
-                
-                <div class="docs-grid">
-                    <div class="doc-card">
-                        <div class="doc-preview">
-                            <iframe src="du-william-cv 4.pdf" frameborder="0"></iframe>
-                        </div>
-                        <div class="doc-info">
-                            <h3>Mon Curriculum Vitae</h3>
-                            <p>Retrouvez mon parcours et mes compétences</p>
-                            <a href="du-william-cv 4.pdf" target="_blank" class="download-btn">
-                                <i class="fas fa-download"></i>
-                                Télécharger le CV
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="doc-card">
-                        <div class="doc-preview">
-                            <iframe src="8-1 - BTS SIO - 2025 - Annexe 8-1 - Epreuve E5 - Tableau de synthese.pdf" frameborder="0"></iframe>
-                        </div>
-                        <div class="doc-info">
-                            <h3>Tableau de Synthèse</h3>
-                            <p>Épreuve E5 - BTS SIO 2025</p>
-                            <a href="8-1 - BTS SIO - 2025 - Annexe 8-1 - Epreuve E5 - Tableau de synthese.xlsx" target="_blank" class="download-btn">
-                                <i class="fas fa-download"></i>
-                                Télécharger le tableau
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Contact améliorée -->
-        <section id="contact" class="content-section">
-            <div class="section-container">
-                <div class="section-header">
-                    <h1 class="section-title">Me Contacter</h1>
-                    <div class="title-underline"></div>
-                </div>
-                
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Envoyez-moi un message</h3>
-                        <p>Vous pouvez me joindre pour toute opportunité professionnelle ou question</p>
-                        <a href="mailto:Chocolait94@hotmail.com" class="email-link">
-                            <i class="fas fa-paper-plane"></i>
-                            Chocolait94@hotmail.com
-                        </a>
-                    </div>
-                    
-                    <div class="social-media">
-                        <h3>Mes Réseaux Sociaux</h3>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/william-du-063083311/" target="_blank" class="social-btn linkedin">
-                                <i class="fab fa-linkedin-in"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="https://github.com/Chocolait94" target="_blank" class="social-btn github">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer amélioré -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 William DU - Portfolio BTS SIO SLAM</p>
-            <p class="footer-subtitle">Conçu avec passion et dédication</p>
+            <p>&copy; 2025 William DU. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <!-- Bouton retour en haut amélioré -->
-    <button id="scrollToTopBtn" class="scroll-top-btn" title="Retour en haut" aria-label="Retour en haut">
+    <!-- Bouton retour en haut -->
+    <button id="scrollToTopBtn" class="scroll-top-btn" aria-label="Retour en haut">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu mobile
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const navbar = document.getElementById('navbar');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    const isExpanded = this.classList.contains('active');
+                    this.setAttribute('aria-expanded', isExpanded);
+                    document.body.style.overflow = isExpanded ? 'hidden' : '';
+                });
+
+                // Fermer le menu au clic sur un lien
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                // Fermer le menu si clic en dehors
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                        mobileMenuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Effet scroll navbar
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scroll pour les ancres
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer pour animations au scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les éléments à animer
+            document.querySelectorAll('.timeline-item, .experience-card, .certification-card, .option-card, .career-item').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

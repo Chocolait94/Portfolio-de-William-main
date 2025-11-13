@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de William - Compétences techniques en développement web : HTML5, CSS3, JavaScript, PHP, SQL, Python, Git et React">
+    <meta name="keywords" content="développement web, HTML5, CSS3, JavaScript, PHP, SQL, Python, Git, React, portfolio">
+    <meta name="author" content="William">
+    
+    <!-- Preconnect pour optimiser le chargement des fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="skills.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lobster&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- Scripts -->
+    <script src="scroll.js" defer></script>
+    <title>Mes Compétences | Portfolio William</title>
+</head>
+<body>
+    <!-- Vidéo de fond -->
+    <video id="background-video" autoplay muted loop playsinline>
+        <source src="video background/orange-train-at-sunset.1920x1080.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">William</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="links">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="index.html#about" class="nav-link">À propos</a>
+                <a href="index.html#education" class="nav-link">Parcours</a>
+                <a href="index.html#experiences" class="nav-link">Expériences</a>
+                <a href="skills.html" class="nav-link">Compétences</a>
+                <a href="index.html#projects" class="nav-link">Projets</a>
+                <a href="index.html#veille" class="nav-link">Veille</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main>
+        <!-- Section Compétences -->
+        <section id="skills" class="content-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h1 class="section-title">Compétences Techniques</h1>
+                    <div class="title-underline"></div>
+                </div>
+                
+                <!-- Compétences de développement -->
+                <p class="section-subtitle">Langages de programmation acquis durant mes études de BTS SIO SLAM</p>
+                
+                <div class="skills-grid">
+                    <!-- HTML5 -->
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/html-5.png" alt="Logo HTML5" loading="lazy">
+                        </div>
+                        <h3>HTML5</h3>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </article>
+                    
+                    <!-- CSS3 -->
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/css-3.png" alt="Logo CSS3" loading="lazy">
+                        </div>
+                        <h3>CSS3</h3>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </article>
+                    
+                    <!-- JavaScript -->
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/js.png" alt="Logo JavaScript" loading="lazy">
+                        </div>
+                        <h3>JavaScript</h3>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </article>
+                    
+                    <!-- PHP -->
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/php.png" alt="Logo PHP" loading="lazy">
+                        </div>
+                        <h3>PHP</h3>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </article>
+                    
+                    <!-- SQL -->
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/sql.png" alt="Logo SQL" loading="lazy">
+                        </div>
+                        <h3>SQL</h3>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </article>
+                    
+                    <!-- Python -->
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/python.png" alt="Logo Python" loading="lazy">
+                        </div>
+                        <h3>Python</h3>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </article>
+
+                    <!-- React -->
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/React-icon.png" alt="Logo React" loading="lazy">
+                        </div>
+                        <h3>React</h3>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </article>
+
+                    <!--C-->
+                    <article class="skill-card">
+                        <div class="skill-icon">
+                            <img src="img/C.png" alt="Logo C" loading="lazy">
+                        </div>
+                        <h3>C</h3>
+                        <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Séparateur -->
+                <div class="section-separator">
+                    <p class="section-subtitle">Outils et Technologies</p>
+                </div>
+                
+                <!-- Outils et logiciels -->
+                <div class="tools-grid">
+                    <!-- Git -->
+                    <article class="tool-card">
+                        <div class="skill-icon">
+                            <img src="img/github.png" alt="Logo GitHub" loading="lazy">
+                        </div>
+                        <h3>GitHub</h3>
+                        <div class="tool-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                            <div class="tool-progress" style="width: 85%"></div>
+                        </div>
+                    </article>
+                    <!-- Visual Studio Code -->
+                    <article class="tool-card">
+                        <div class="tool-icon">
+                            <img src="img/vscode.png" alt="Logo Visual Studio Code" loading="lazy">
+                        </div>
+                        <h3>Visual Studio Code</h3>
+                        <div class="tool-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <div class="tool-progress" style="width: 100%"></div>
+                        </div>
+                    </article>
+                    <!-- PhpMyAdmin -->
+                    <article class="tool-card">
+                        <div class="tool-icon">
+                            <img src="img/phpmyadmin.png" alt="Logo PhpMyAdmin" loading="lazy">
+                        </div>
+                        <h3>PhpMyAdmin via XAMPP</h3>
+                        <div class="tool-bar" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100">
+                            <div class="tool-progress" style="width: 73%"></div>
+                        </div>
+                    </article>
+                    <!--Docker-->
+                    <article class="tool-card">
+                        <div class="tool-icon">
+                            <img src="img/docker.png" alt="Logo Docker" loading="lazy">
+                        </div>
+                        <h3>Docker</h3>
+                        <div class="tool-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                            <div class="tool-progress" style="width: 30%"></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+            <!-- Section Projets améliorée -->
+        <section id="projects" class="content-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h1 class="section-title">Mes Projets</h1>
+                    <div class="title-underline"></div>
+                </div>
+                
+                <p class="section-subtitle">Découvrez quelques projets sur lesquels j'ai travaillé grace à ces outils et technologies.</p>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <a href="Iristech/Iristech/Accueil (1).html" target="_blank">
+                            <div class="project-image">
+                                <img src="img/undefined.png" alt="IrisTech">
+                                <div class="project-overlay">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Voir le projet</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>IrisTech</h3>
+                                <p>Site vitrine futuriste pour un projet Étudiant</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="project-card">
+                        <a href="https://portfolio-de-drazonia.vercel.app/" target="_blank">
+                            <div class="project-image">
+                                <img src="img/Sticker_PPG_20_The_Herta_02.png" alt="Portfolio Drazonia">
+                                <div class="project-overlay">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Voir le projet</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Portfolio Drazonia</h3>
+                                <p>Portfolio personnel pour le défi de la streameuse Drazonia (site en accès anticipé)</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="img/lovepik-bookstore-in-winter-.png" alt="Storebooks">
+                            <div class="project-overlay coming-soon">
+                                <i class="fas fa-clock"></i>
+                                <span>Bientôt disponible</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Storebooks</h3>
+                            <p>Application de gestion de livres</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <a href="https://github.com/Chocolait94/jeu-du-pendu.git" target="_blank">
+                            <div class="project-image">
+                                <img src="img/bourreau.png" alt="Jeu du Pendu">
+                                <div class="project-overlay">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Voir le code</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Jeu du Pendu</h3>
+                                <p>Jeu interactif en Python</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="project-card">
+                        <a href="Pokedex/index.html" target="_blank">
+                            <div class="project-image">
+                                <img src="img/shared image.jpeg" alt="Pokedex">
+                                <div class="project-overlay">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Voir le projet</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Pokédex</h3>
+                                <p>Application web interactive</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="project-card">
+                            <a href="https://all-good-five.vercel.app/index.html" target="_blank">
+                            <div class="project-image">
+                                <img src="img/都好2.png" alt="Projet restaurant">
+                                <div class="project-overlay">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Voir le site</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Restaurant 都好 • All Good </h3>
+                                <p>Restaurant asiatique situé en Italie</p>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="project-card">
+                            <a href="https://meteo-alpha-nine.vercel.app/" target="_blank">
+                            <div class="project-image">
+                                <img src="img/weather.jpg" alt="Projet Météo">
+                                <div class="project-overlay">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Voir le site</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Application Météo</h3>
+                                <p>Application web de prévisions météorologiques en temps réel</p>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 William. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <button id="scrollToTopBtn" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Menu mobile toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const links = document.querySelector('.links');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    links.classList.toggle('active');
+                    document.body.style.overflow = links.classList.contains('active') ? 'hidden' : '';
+                });
+
+                // Fermer le menu au clic sur un lien
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        links.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
