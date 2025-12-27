@@ -751,8 +751,433 @@ body {
 }
 
 /* ========================================
-   10. SECTION EXPÉRIENCES
+   10. SECTION EXPÉRIENCES - TIMELINE
    ======================================== */
+
+/* Container de la timeline */
+.experience-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 2rem 0;
+}
+
+/* Item de timeline */
+.timeline-experience-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 120px 60px 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: slideInTimeline 0.8s ease-out forwards;
+}
+
+.timeline-experience-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.timeline-experience-item:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.timeline-experience-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Badge année */
+.timeline-year-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(173, 122, 221, 0.1));
+    border: 2px solid var(--primary-color);
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+    transition: all var(--transition-normal);
+}
+
+.timeline-year-badge.current {
+    background: linear-gradient(135deg, var(--success-color), #45a049);
+    border-color: var(--success-color);
+    color: white;
+    animation: pulseGlow 2s infinite;
+}
+
+/* Connecteur vertical */
+.timeline-connector {
+    position: absolute;
+    left: 150px;
+    top: 60px;
+    width: 3px;
+    height: calc(100% + 4rem);
+    background: linear-gradient(180deg, 
+        rgba(0, 240, 255, 0.3) 0%,
+        rgba(173, 122, 221, 0.3) 50%,
+        rgba(0, 240, 255, 0.3) 100%
+    );
+    z-index: 1;
+}
+
+.timeline-experience-item:last-child .timeline-connector {
+    display: none;
+}
+
+.timeline-connector.active {
+    background: linear-gradient(180deg, 
+        var(--primary-color) 0%,
+        var(--success-color) 100%
+    );
+    box-shadow: 0 0 10px var(--primary-color);
+    animation: flowDown 2s ease-in-out infinite;
+}
+
+/* Point de la timeline */
+.timeline-dot {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: var(--bg-dark);
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all var(--transition-normal);
+}
+
+.timeline-dot.featured {
+    border-width: 4px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+.timeline-dot.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-color: var(--success-color);
+    animation: rotateDot 3s linear infinite;
+}
+
+.timeline-dot-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.timeline-dot-icon i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.timeline-dot.active .timeline-dot-icon i {
+    color: var(--bg-dark);
+}
+
+/* Anneau pulsant pour l'expérience en cours */
+.pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--success-color);
+    border-radius: 50%;
+    animation: pulseRing 2s ease-out infinite;
+}
+
+/* Carte de timeline */
+.timeline-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(0, 240, 255, 0.1);
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 12px solid rgba(0, 240, 255, 0.1);
+}
+
+.timeline-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 30px rgba(0, 240, 255, 0.3);
+    border-color: var(--primary-color);
+}
+
+.timeline-card:hover::before {
+    border-right-color: var(--primary-color);
+}
+
+.timeline-card.featured {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.2);
+}
+
+/* Badge "En cours" */
+.current-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, var(--success-color), #45a049);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.current-badge i {
+    font-size: 0.5rem;
+    animation: blink 1.5s infinite;
+}
+
+/* En-tête de carte */
+.timeline-card-header {
+    margin-bottom: var(--spacing-md);
+    padding-right: 7rem;
+}
+
+.timeline-card-header h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.timeline-date {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: 1.5rem;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Entreprise et durée */
+.timeline-company,
+.timeline-duration {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+}
+
+.timeline-company {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.timeline-company i {
+    font-size: 0.9rem;
+}
+
+.timeline-duration {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.timeline-duration i {
+    font-size: 0.85rem;
+}
+
+/* Tags */
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: var(--spacing-md) 0;
+}
+
+.timeline-tags .tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(173, 122, 221, 0.15));
+    border: 1px solid var(--primary-color);
+    border-radius: 1.5rem;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.timeline-tags .tag:hover {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(173, 122, 221, 0.25));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 240, 255, 0.3);
+}
+
+/* Mission */
+.timeline-mission {
+    background: rgba(0, 240, 255, 0.05);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--primary-color);
+    margin: var(--spacing-md) 0;
+}
+
+.timeline-mission h4 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.timeline-mission h4 i {
+    font-size: 0.9rem;
+}
+
+.timeline-mission p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+}
+
+/* Liste des missions */
+.mission-list {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
+}
+
+.mission-list li {
+    padding: 0.5rem 0 0.5rem 1.8rem;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.mission-list li i {
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    color: var(--success-color);
+    font-size: 0.8rem;
+}
+
+/* Bouton de timeline */
+.timeline-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: var(--spacing-md);
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(173, 122, 221, 0.1));
+    border: 2px solid var(--primary-color);
+    border-radius: var(--radius-sm);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+}
+
+.timeline-btn:hover {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(173, 122, 221, 0.2));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
+}
+
+.timeline-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    background: white;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+}
+
+.timeline-btn span {
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   ANIMATIONS TIMELINE
+   ======================================== */
+@keyframes slideInTimeline {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 25px rgba(76, 175, 80, 0.7);
+    }
+}
+
+@keyframes rotateDot {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes flowDown {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0.3;
+    }
+}
+
+/* Anciens styles - À SUPPRIMER ou commenter */
+/*
 .experiences-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -769,6 +1194,29 @@ body {
     position: relative;
     overflow: hidden;
     opacity: 0;
+}
+
+/* Badge "En cours" pour les expériences actuelles */
+.experience-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, var(--success-color), #45a049);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    animation: pulse 2s infinite;
+    z-index: 2;
+}
+
+.experience-badge i {
+    font-size: 0.7rem;
 }
 
 .experience-card.visible {
@@ -877,28 +1325,97 @@ body {
 
 .experience-mission strong {
     color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.experience-mission p {
+    margin-bottom: 1rem;
+}
+
+/* Liste des tâches dans la mission */
+.mission-tasks {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
+}
+
+.mission-tasks li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.mission-tasks li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Tags pour les technologies */
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: var(--spacing-md) 0;
+}
+
+.experience-tags .tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(173, 122, 221, 0.1));
+    border: 1px solid var(--primary-color);
+    border-radius: 1.5rem;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.experience-tags .tag:hover {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(173, 122, 221, 0.2));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 240, 255, 0.2);
 }
 
 .experience-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
     margin-top: var(--spacing-md);
+    padding: 0.8rem 1.2rem;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(173, 122, 221, 0.1));
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+}
+
+.experience-link:hover {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(173, 122, 221, 0.2));
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
 }
 
 .experience-link img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
     background: white;
-    padding: 0.5rem;
+    padding: 0.4rem;
     border-radius: var(--radius-sm);
     transition: all var(--transition-normal);
-    box-shadow: var(--shadow-sm);
 }
 
-.experience-link img:hover {
-    transform: scale(1.1) rotate(-3deg);
-    box-shadow: var(--shadow-md);
+.experience-link:hover img {
+    transform: scale(1.1) rotate(-5deg);
 }
+
+}
+*/
 
 /* ========================================
    11. SECTION CERTIFICATIONS
@@ -1350,9 +1867,86 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
-    /* Expériences */
-    .experiences-grid {
-        grid-template-columns: 1fr;
+    /* Timeline Expériences */
+    .experience-timeline {
+        padding: 1rem 0;
+    }
+
+    .timeline-experience-item {
+        grid-template-columns: 80px 40px 1fr;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .timeline-year-badge {
+        height: 50px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .timeline-connector {
+        left: 100px;
+        width: 2px;
+    }
+
+    .timeline-dot {
+        width: 40px;
+        height: 40px;
+    }
+
+    .timeline-dot-icon i {
+        font-size: 1rem;
+    }
+
+    .timeline-card {
+        padding: var(--spacing-md);
+    }
+
+    .timeline-card::before {
+        left: -8px;
+        border-right-width: 8px;
+        border-top-width: 8px;
+        border-bottom-width: 8px;
+    }
+
+    .timeline-card-header {
+        padding-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .timeline-card-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .timeline-date {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .current-badge {
+        position: static;
+        display: inline-flex;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .timeline-company,
+    .timeline-duration {
+        font-size: 0.9rem;
+    }
+
+    .timeline-tags .tag {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .timeline-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .timeline-btn img {
+        width: 30px;
+        height: 30px;
     }
 
     /* Certifications */
@@ -1416,7 +2010,53 @@ body {
         height: 200px;
     }
 
-    .certification-card {
+    /* Timeline mobile très compact */
+    .timeline-experience-item {
+        grid-template-columns: 70px 30px 1fr;
+        gap: 0.8rem;
+    }
+
+    .timeline-year-badge {
+        height: 45px;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .timeline-connector {
+        left: 85px;
+    }
+
+    .timeline-dot {
+        width: 30px;
+        height: 30px;
+    }
+
+    .timeline-dot-icon i {
+        font-size: 0.9rem;
+    }
+
+    .timeline-card {
+        padding: 1rem;
+    }
+
+    .timeline-card-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .timeline-mission h4 {
+        font-size: 0.9rem;
+    }
+
+    .timeline-mission p {
+        font-size: 0.9rem;
+    }
+
+    .mission-list li {
+        font-size: 0.85rem;
+        padding-left: 1.5rem;
+    }
+
+    /* Certifications */
         padding: var(--spacing-sm);
     }
 
