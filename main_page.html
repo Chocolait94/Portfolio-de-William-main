@@ -32,29 +32,58 @@
     </video>
     <div class="video-overlay"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation Moderne -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
+            <!-- Logo avec animation -->
             <div class="logo">
-                <a href="#" aria-label="Retour à l'accueil">William DU</a>
+                <a href="#" aria-label="Retour à l'accueil">
+                    <span class="logo-icon">W</span>
+                    <span class="logo-text">illiam DU</span>
+                </a>
             </div>
             
+            <!-- Menu Toggle Amélioré -->
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
             </button>
 
-            <div class="links" id="navLinks">
-                <a href="#about" class="nav-link">À propos</a>
-                <a href="#education" class="nav-link">Parcours</a>
-                <a href="#BTS" class="nav-link">BTS SIO</a>
-                <a href="#experience" class="nav-link">Expériences</a>
-                <a href="skills.html" class="nav-link">Compétences</a>
-                <a href="#projects" class="nav-link">Projets</a>
-                <a href="veille_techno.html#veille-technologique" class="nav-link">Veille Tech</a>
-                <a href="veille_techno.html#documentation" class="nav-link">Documents</a>
-                <a href="veille_techno.html#contact" class="nav-link">Contact</a>
+            <!-- Navigation Links avec indicateurs -->
+            <div class="nav-menu" id="navLinks">
+                <div class="nav-links-wrapper">
+                    <a href="#about" class="nav-link" data-section="about">
+                        <i class="fas fa-user"></i>
+                        <span>À propos</span>
+                    </a>
+                    <a href="#education" class="nav-link" data-section="education">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Parcours</span>
+                    </a>
+                    <a href="#BTS" class="nav-link" data-section="BTS">
+                        <i class="fas fa-book"></i>
+                        <span>BTS SIO</span>
+                    </a>
+                    <a href="#experience" class="nav-link" data-section="experience">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Expériences</span>
+                    </a>
+                    <a href="skills.html" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Compétences</span>
+                    </a>
+                    <a href="#projects" class="nav-link" data-section="projects">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Projets</span>
+                    </a>
+                    <a href="veille_techno.html" class="nav-link nav-link-highlight">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Veille & Contact</span>
+                    </a>
+                </div>
+                <!-- Indicateur de position -->
+                <div class="nav-indicator"></div>
             </div>
         </div>
     </nav>
@@ -67,6 +96,25 @@
                 <span class="portfolio-text">sur mon Portfolio</span>
             </div>
             <p class="intro">Découvrez mon parcours, mes projets et comment me contacter !</p>
+            
+            <!-- Réseaux sociaux -->
+            <div class="social-links">
+                <a href="https://github.com/Chocolait94" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="social-link"
+                    aria-label="Visiter mon profil GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/william-du-063083311/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="social-link"
+                    aria-label="Visiter mon profil LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            
             <a href="#about" class="cta-button" aria-label="Découvrir mon parcours">
                 Découvrir mon parcours
                 <i class="fas fa-arrow-down"></i>
@@ -357,6 +405,59 @@
                                 aria-label="Visiter le site web de Val Facade">
                                 <img src="img/val facade.jpg" alt="Logo Val Facade" loading="lazy">
                                 <span>Voir le site</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Timeline Item 4 - 2026 Secouriste en bénévolat -->
+                    <article class="timeline-experience-item active">
+                        <div class="timeline-year-badge current">2026</div>
+                        <div class="timeline-connector active"></div>
+                        <div class="timeline-dot featured active">
+                            <div class="timeline-dot-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <div class="timeline-card volunteer-card">
+                            <div class="current-badge">
+                                <i class="fas fa-circle"></i>
+                                <span>En cours</span>
+                            </div>
+                            <!-- En-tête de la carte -->
+                            <div class="timeline-card-header">
+                                <h3>Secouriste en bénévolat</h3>
+                                <time class="timeline-date" datetime="2026-now">2026 - maintenant</time>
+                            </div>
+                            
+                            <!-- Organisation -->
+                            <div class="timeline-company">
+                                <i class="fas fa-hands-helping"></i>
+                                FFSS - Fédération Française de Sauvetage et de Secourisme
+                            </div>
+                            
+                            <!-- Durée -->
+                            <div class="timeline-duration">
+                                <i class="fas fa-clock"></i>
+                                Depuis le 30 janvier 2026
+                            </div>
+                            
+                            <!-- Mission -->
+                            <div class="timeline-mission">
+                                <h4><i class="fas fa-tasks"></i> Mission</h4>
+                                <p>Assister lors d'événements publics et fournir les premiers secours en cas d'urgence.</p>
+                            </div>
+                            
+                            <!-- Lien vers le site -->
+                            <a href="https://www.ffss.fr/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="timeline-btn"
+                                aria-label="Visiter le site de la Fédération Française de Sauvetage et de Secourisme">
+                                <img src="img/FFSS-Logo.png" 
+                                    alt="Logo Fédération Française de Sauvetage et de Secourisme" 
+                                    loading="lazy">
+                                <span>Plus d'infos</span>
                             </a>
                         </div>
                     </article>
