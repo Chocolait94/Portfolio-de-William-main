@@ -358,11 +358,10 @@ body {
 
 .mobile-menu-toggle.active {
     background: rgba(0, 240, 255, 0.2);
-    transform: rotate(90deg);
 }
 
 .mobile-menu-toggle.active .burger-line:nth-child(1) {
-    transform: rotate(45deg) translate(9px, 9px);
+    transform: rotate(45deg) translate(8px, 8px);
     background: var(--accent-color);
 }
 
@@ -372,7 +371,7 @@ body {
 }
 
 .mobile-menu-toggle.active .burger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(9px, -9px);
+    transform: rotate(-45deg) translate(8px, -8px);
     background: var(--accent-color);
 }
 
@@ -1636,6 +1635,7 @@ body {
     background: var(--bg-card);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
+    margin: var(--spacing-md);
     border: 1px solid rgba(0, 240, 255, 0.1);
     transition: all var(--transition-normal);
     position: relative;
@@ -1832,7 +1832,7 @@ body {
 }
 
 /* ========================================
-   14. ANIMATIONS
+    14. ANIMATIONS
    ======================================== */
 
 /* Animation d'entrée de la navbar */
@@ -1979,7 +1979,7 @@ body {
 }
 
 /* ========================================
-   15. MEDIA QUERIES - RESPONSIVE DESIGN
+    15. MEDIA QUERIES - RESPONSIVE DESIGN
    ======================================== */
 
 /* Tablettes et petits écrans (≤ 1024px) */
@@ -2386,7 +2386,7 @@ body {
         padding: 8px 12px;
         font-size: 14px;
     }
-
+}
 
 /* Très petits écrans (≤ 360px) */
 @media screen and (max-width: 360px) {
