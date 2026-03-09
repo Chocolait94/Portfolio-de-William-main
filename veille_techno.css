@@ -1142,6 +1142,134 @@ main {
     8. FOOTER
    ======================================== */
 /* ============================================
+   SOURCES & RÉFÉRENCES MINI PC
+   ============================================ */
+.refs-section {
+    margin-top: 3rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: rgba(8, 14, 30, 0.92);
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    padding: 0 0 0.5rem;
+}
+
+.refs-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    padding: 1.4rem 2rem 1rem;
+    margin: 0;
+}
+
+.refs-subtitle-bar {
+    height: 3px;
+    background: linear-gradient(90deg, #00F0FF, #ad7add, transparent);
+    margin: 0 2rem 1rem;
+    border-radius: 2px;
+}
+
+.refs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem 1rem;
+}
+
+.ref-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: rgba(13, 20, 45, 0.85);
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ref-row:hover {
+    background: rgba(20, 30, 60, 0.95);
+    transform: translateX(4px);
+}
+
+/* Couleurs de bordure gauche */
+.ref-cyan  { border-left-color: #00F0FF; }
+.ref-red   { border-left-color: #FF4444; }
+.ref-green { border-left-color: #00C853; }
+
+/* Icônes circulaires */
+.ref-icon-wrap {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.ref-icon-cyan  { background: rgba(0,  240, 255, 0.15); color: #00F0FF; }
+.ref-icon-red   { background: rgba(255, 68,  68,  0.18); color: #FF4444; }
+.ref-icon-green { background: rgba(0,  200, 83,  0.15); color: #00C853; }
+
+/* Corps texte */
+.ref-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.ref-category {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.ref-cat-cyan  { color: #00F0FF; }
+.ref-cat-red   { color: #FF6060; }
+.ref-cat-green { color: #00C853; }
+
+.ref-desc {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* URL droite */
+.ref-url {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    color: #00C8A0;
+    font-style: italic;
+    max-width: 280px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .ref-url {
+        display: none;
+    }
+    .ref-desc {
+        white-space: normal;
+    }
+}
+
+/* ============================================
    FOOTER MODERNE
    ============================================ */
 .modern-footer {
@@ -1932,10 +2060,23 @@ main {
     }
 }
 
+/* Grille 2 colonnes pour les présentations */
+.presentations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+@media (max-width: 900px) {
+    .presentations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Conteneur de présentation PowerPoint */
 .presentation-container {
-    max-width: 800px;
-    margin: 0 auto var(--spacing-xl);
+    margin: 0;
     background: var(--bg-card);
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -1943,6 +2084,8 @@ main {
     box-shadow: var(--shadow-md);
     transition: all var(--transition-normal);
     animation: fadeInUp 0.8s ease-out 1s both;
+    display: flex;
+    flex-direction: column;
 }
 
 .presentation-container:hover {
@@ -1951,11 +2094,59 @@ main {
     border-color: var(--primary-color);
 }
 
+/* Tag coloré au-dessus du titre */
+.pres-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 50px;
+    margin-bottom: 0.6rem;
+}
+
+.tag-blue {
+    background: rgba(0, 240, 255, 0.12);
+    color: #00F0FF;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.tag-red {
+    background: rgba(255, 107, 107, 0.12);
+    color: #FF6B6B;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+/* Placeholder icône pour les cartes sans image */
+.presentation-no-img {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.06) 0%, rgba(173, 122, 221, 0.08) 100%);
+}
+
+.presentation-icon-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presentation-icon-bg i {
+    font-size: 5rem;
+    background: linear-gradient(135deg, #00F0FF, #ad7add);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.7;
+}
+
 /* Aperçu de la présentation */
 .presentation-preview {
     position: relative;
     width: 100%;
-    height: 450px;
+    height: 260px;
     overflow: hidden;
     cursor: pointer;
     background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(173, 122, 221, 0.05));
