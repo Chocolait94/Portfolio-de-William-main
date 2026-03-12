@@ -405,26 +405,133 @@ body {
     animation: fadeInUp 1s ease-out;
 }
 
-.neon-text {
+/* Hero Name Block */
+.hero-name-block {
     margin-bottom: var(--spacing-md);
 }
 
-.welcome-text,
-.portfolio-text {
-    display: block;
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    color: var(--primary-color);
-    text-shadow: 
-        0 0 10px rgba(0, 240, 255, 0.8),
-        0 0 20px rgba(0, 240, 255, 0.6),
-        0 0 40px rgba(0, 240, 255, 0.4);
-    animation: neonPulse 2s ease-in-out infinite;
-    line-height: 1.2;
+.hero-greeting {
+    font-family: var(--font-primary);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.8s ease-out;
 }
 
-.portfolio-text {
-    animation-delay: 0.5s;
+.hero-name {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3.5rem, 11vw, 7rem);
+    color: #c6e2ff;
+    animation: neonFlicker .08s ease-in-out infinite alternate, fadeInUp 0.8s ease-out;
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+}
+
+.hero-role {
+    font-family: var(--font-primary);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: #c6e2ff;
+    font-weight: 400;
+    min-height: 2.5rem;
+    animation: fadeInUp 1s ease-out;
+    text-shadow:
+        0 0 6px rgba(202, 228, 225, 0.92),
+        0 0 30px rgba(202, 228, 225, 0.34),
+        0 0 12px rgba(30, 132, 242, 0.52),
+        0 0 21px rgba(30, 132, 242, 0.92),
+        0 0 34px rgba(30, 132, 242, 0.78),
+        0 0 54px rgba(30, 132, 242, 0.92);
+}
+
+/* Typewriter */
+.typewriter {
+    --caret: #c6e2ff;
+}
+
+.typewriter::before {
+    content: "";
+    animation: typewriterRole 9s infinite;
+}
+
+.typewriter::after {
+    content: "";
+    border-right: 2px solid var(--caret);
+    animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes typewriterRole {
+    0.00%, 8.00% { content: ""; }
+    9.62% { content: "f"; }
+    11.23% { content: "fu"; }
+    12.85% { content: "fut"; }
+    14.46% { content: "futu"; }
+    16.08% { content: "futur"; }
+    17.69% { content: "futur "; }
+    19.31% { content: "futur t"; }
+    20.92% { content: "futur te"; }
+    22.54% { content: "futur tes"; }
+    24.15% { content: "futur test"; }
+    25.77% { content: "futur teste"; }
+    27.38% { content: "futur testeu"; }
+    29.00% { content: "futur testeur"; }
+    30.62% { content: "futur testeur "; }
+    32.23% { content: "futur testeur d"; }
+    33.85% { content: "futur testeur de"; }
+    35.46% { content: "futur testeur de "; }
+    37.08% { content: "futur testeur de l"; }
+    38.69% { content: "futur testeur de lo"; }
+    40.31% { content: "futur testeur de log"; }
+    41.92% { content: "futur testeur de logi"; }
+    43.54% { content: "futur testeur de logic"; }
+    45.15% { content: "futur testeur de logici"; }
+    46.77% { content: "futur testeur de logicie"; }
+    48.38% { content: "futur testeur de logiciel"; }
+    50.00%, 70.00% { content: "futur testeur de logiciels"; }
+    71.00% { content: "futur testeur de logiciel"; }
+    72.00% { content: "futur testeur de logicie"; }
+    73.00% { content: "futur testeur de logici"; }
+    74.00% { content: "futur testeur de logic"; }
+    75.00% { content: "futur testeur de logi"; }
+    76.00% { content: "futur testeur de log"; }
+    77.00% { content: "futur testeur de lo"; }
+    78.00% { content: "futur testeur de l"; }
+    79.00% { content: "futur testeur de "; }
+    80.00% { content: "futur testeur de"; }
+    81.00% { content: "futur testeur d"; }
+    82.00% { content: "futur testeur "; }
+    83.00% { content: "futur testeur"; }
+    84.00% { content: "futur testeu"; }
+    85.00% { content: "futur teste"; }
+    86.00% { content: "futur test"; }
+    87.00% { content: "futur tes"; }
+    88.00% { content: "futur te"; }
+    89.00% { content: "futur t"; }
+    90.00% { content: "futur "; }
+    91.00% { content: "futur"; }
+    92.00% { content: "futu"; }
+    93.00% { content: "fut"; }
+    94.00% { content: "fu"; }
+    95.00% { content: "f"; }
+    96.00%, 100% { content: ""; }
+}
+
+@media (prefers-reduced-motion) {
+    .typewriter::after {
+        animation: none;
+    }
+    .typewriter::before {
+        content: "futur testeur de logiciels";
+        animation: none;
+    }
 }
 
 .intro {
@@ -2137,6 +2244,27 @@ body {
     }
 }
 
+@keyframes neonFlicker {
+    from {
+        text-shadow:
+            0 0 6px rgba(202, 228, 225, 0.92),
+            0 0 30px rgba(202, 228, 225, 0.34),
+            0 0 12px rgba(30, 132, 242, 0.52),
+            0 0 21px rgba(30, 132, 242, 0.92),
+            0 0 34px rgba(30, 132, 242, 0.78),
+            0 0 54px rgba(30, 132, 242, 0.92);
+    }
+    to {
+        text-shadow:
+            0 0 6px rgba(202, 228, 225, 0.98),
+            0 0 30px rgba(202, 228, 225, 0.42),
+            0 0 12px rgba(30, 132, 242, 0.58),
+            0 0 22px rgba(30, 132, 242, 0.84),
+            0 0 38px rgba(30, 132, 242, 0.88),
+            0 0 60px rgba(30, 132, 242, 1);
+    }
+}
+
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
@@ -2300,9 +2428,12 @@ body {
         min-height: 80vh;
     }
 
-    .welcome-text,
-    .portfolio-text {
-        font-size: clamp(2rem, 10vw, 3.5rem);
+    .hero-name {
+        font-size: clamp(2.8rem, 10vw, 5rem);
+    }
+
+    .hero-role {
+        font-size: clamp(1rem, 3.5vw, 1.5rem);
     }
 
     .intro {
@@ -2491,9 +2622,12 @@ body {
         font-size: 1.5rem;
     }
 
-    .welcome-text,
-    .portfolio-text {
-        font-size: clamp(1.8rem, 12vw, 2.5rem);
+    .hero-name {
+        font-size: clamp(1.8rem, 12vw, 3rem);
+    }
+
+    .hero-role {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
     }
 
     .profile-picture {
