@@ -820,6 +820,8 @@ main {
 .project-card:nth-child(4) { --card-index: 4; }
 .project-card:nth-child(5) { --card-index: 5; }
 .project-card:nth-child(6) { --card-index: 6; }
+.project-card:nth-child(7) { --card-index: 7; }
+.project-card:nth-child(8) { --card-index: 8; }
 
 .project-card::before {
     content: '';
