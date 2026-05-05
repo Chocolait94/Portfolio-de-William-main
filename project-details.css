@@ -132,6 +132,10 @@ body {
     gap: 1rem;
 }
 
+.content-grid + .content-grid {
+    margin-top: 1rem;
+}
+
 .panel {
     background: var(--card);
     border: 1px solid var(--line);
@@ -139,6 +143,10 @@ body {
     box-shadow: var(--shadow);
     padding: 1.1rem;
     animation: reveal 0.6s ease-out both;
+}
+
+.panel--wide {
+    grid-column: 1 / -1;
 }
 
 .panel h2 {
@@ -156,6 +164,31 @@ body {
     list-style: none;
     display: grid;
     gap: 0.55rem;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin-top: 0.9rem;
+}
+
+.image-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: block;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.image-grid img:hover {
+    transform: translateY(-3px);
+    border-color: rgba(45, 212, 191, 0.35);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
 }
 
 .highlight-list li {
@@ -248,6 +281,10 @@ body {
 @media (max-width: 540px) {
     body {
         padding-top: 1.3rem;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr;
     }
 
     .meta-grid {
