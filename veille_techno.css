@@ -2254,6 +2254,10 @@ main {
     overflow: hidden;
 }
 
+.download-presentation-btn + .download-presentation-btn {
+    margin-top: 0.5rem;
+}
+
 .download-presentation-btn::before {
     content: '';
     position: absolute;
