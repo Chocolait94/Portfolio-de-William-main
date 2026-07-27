@@ -476,51 +476,51 @@ body {
     14.46% { content: "futu"; }
     16.08% { content: "futur"; }
     17.69% { content: "futur "; }
-    19.31% { content: "futur t"; }
-    20.92% { content: "futur te"; }
-    22.54% { content: "futur tes"; }
-    24.15% { content: "futur test"; }
-    25.77% { content: "futur teste"; }
-    27.38% { content: "futur testeu"; }
-    29.00% { content: "futur testeur"; }
-    30.62% { content: "futur testeur "; }
-    32.23% { content: "futur testeur d"; }
-    33.85% { content: "futur testeur de"; }
-    35.46% { content: "futur testeur de "; }
-    37.08% { content: "futur testeur de l"; }
-    38.69% { content: "futur testeur de lo"; }
-    40.31% { content: "futur testeur de log"; }
-    41.92% { content: "futur testeur de logi"; }
-    43.54% { content: "futur testeur de logic"; }
-    45.15% { content: "futur testeur de logici"; }
-    46.77% { content: "futur testeur de logicie"; }
-    48.38% { content: "futur testeur de logiciel"; }
-    50.00%, 70.00% { content: "futur testeur de logiciels"; }
-    71.00% { content: "futur testeur de logiciel"; }
-    72.00% { content: "futur testeur de logicie"; }
-    73.00% { content: "futur testeur de logici"; }
-    74.00% { content: "futur testeur de logic"; }
-    75.00% { content: "futur testeur de logi"; }
-    76.00% { content: "futur testeur de log"; }
-    77.00% { content: "futur testeur de lo"; }
-    78.00% { content: "futur testeur de l"; }
-    79.00% { content: "futur testeur de "; }
-    80.00% { content: "futur testeur de"; }
-    81.00% { content: "futur testeur d"; }
-    82.00% { content: "futur testeur "; }
-    83.00% { content: "futur testeur"; }
-    84.00% { content: "futur testeu"; }
-    85.00% { content: "futur teste"; }
-    86.00% { content: "futur test"; }
-    87.00% { content: "futur tes"; }
-    88.00% { content: "futur te"; }
-    89.00% { content: "futur t"; }
-    90.00% { content: "futur "; }
-    91.00% { content: "futur"; }
-    92.00% { content: "futu"; }
-    93.00% { content: "fut"; }
-    94.00% { content: "fu"; }
-    95.00% { content: "f"; }
+    19.31% { content: "futur a"; }
+    20.92% { content: "futur ad"; }
+    22.54% { content: "futur adm"; }
+    24.15% { content: "futur admin"; }
+    25.77% { content: "futur admini"; }
+    27.38% { content: "futur adminis"; }
+    29.00% { content: "futur administ"; }
+    30.62% { content: "futur administr"; }
+    32.23% { content: "futur administra"; }
+    33.85% { content: "futur administrat"; }
+    35.46% { content: "futur administrate"; }
+    37.08% { content: "futur administrateur"; }
+    38.69% { content: "futur administrateur "; }
+    40.31% { content: "futur administrateur d"; }
+    41.92% { content: "futur administrateur d'"; }
+    43.54% { content: "futur administrateur d'i"; }
+    45.15% { content: "futur administrateur d'in"; }
+    46.77% { content: "futur administrateur d'inf"; }
+    48.38% { content: "futur administrateur d'infr"; }
+    50.00%, 70.00% { content: "futur administrateur d'infrastructure et cloud"; }
+    71.00% { content: "futur administrateur d'infrastructur"; }
+    72.00% { content: "futur administrateur d'infrastructu"; }
+    73.00% { content: "futur administrateur d'infrastruct"; }
+    74.00% { content: "futur administrateur d'infrastr"; }
+    75.00% { content: "futur administrateur d'infras"; }
+    76.00% { content: "futur administrateur d'infr"; }
+    77.00% { content: "futur administrateur d'inf"; }
+    78.00% { content: "futur administrateur d'i"; }
+    79.00% { content: "futur administrateur d'"; }
+    80.00% { content: "futur administrateur d"; }
+    81.00% { content: "futur administrateur "; }
+    82.00% { content: "futur administrateur"; }
+    83.00% { content: "futur administrateu"; }
+    84.00% { content: "futur administrate"; }
+    85.00% { content: "futur administrat"; }
+    86.00% { content: "futur administra"; }
+    87.00% { content: "futur administr"; }
+    88.00% { content: "futur administ"; }
+    89.00% { content: "futur adminis"; }
+    90.00% { content: "futur admini"; }
+    91.00% { content: "futur admin"; }
+    92.00% { content: "futur admi"; }
+    93.00% { content: "futur adm"; }
+    94.00% { content: "futur ad"; }
+    95.00% { content: "futur a"; }
     96.00%, 100% { content: ""; }
 }
 
@@ -529,7 +529,7 @@ body {
         animation: none;
     }
     .typewriter::before {
-        content: "futur testeur de logiciels";
+        content: "futur administrateur d'infrastructure et cloud";
         animation: none;
     }
 }
@@ -1642,17 +1642,30 @@ body {
 
 .experience-mission p {
     margin-bottom: 1rem;
+.timeline-date-separator {
+    display: inline-block;
+    margin: 0 0.4rem;
+    color: var(--text-muted);
+    font-weight: 700;
+}
 }
 
 /* Liste des tâches dans la mission */
 .mission-tasks {
     list-style: none;
+.timeline-card.job-card {
+    border-color: rgba(255, 184, 77, 0.15);
+    background: linear-gradient(180deg, rgba(255, 184, 77, 0.05), var(--bg-card));
+}
     margin-top: 1rem;
     padding-left: 0;
 }
 
 .mission-tasks li {
     padding: 0.5rem 0 0.5rem 1.5rem;
+.timeline-mission .mission-list {
+    margin-top: 0;
+}
     position: relative;
     color: var(--text-secondary);
 }
