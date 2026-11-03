@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transfert de composants et montage d'un ordinateur dans un nouveau boîtier - Portfolio de William">
+    <title>Montage PC | Détail Projet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../project-details.css">
+    <style>
+        .before-after {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .comparison-card {
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .comparison-card h3 {
+            padding: 0.8rem 1rem 0.2rem;
+            color: var(--accent-2);
+            font-family: "Space Grotesk", "Outfit", sans-serif;
+        }
+
+        .comparison-card p {
+            padding: 0 1rem 0.8rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .comparison-card img {
+            width: 100%;
+            height: clamp(360px, 48vw, 620px);
+            display: block;
+            object-fit: contain;
+            background: rgba(0, 0, 0, 0.22);
+        }
+
+        @media (max-width: 700px) {
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-shell">
+        <a class="back-link" href="../skills.html#projects">← Retour aux projets</a>
+
+        <section class="hero">
+            <div>
+                <h1 class="hero-title">Transfert et montage PC</h1>
+                <p class="hero-subtitle">Déplacement des composants d'un ancien boîtier vers une nouvelle configuration plus adaptée au refroidissement.</p>
+                <div class="meta-grid">
+                    <div class="meta-item"><strong>Type</strong>Montage matériel</div>
+                    <div class="meta-item"><strong>Rôle</strong>Démontage, transfert et remontage</div>
+                    <div class="meta-item"><strong>Objectif</strong>Améliorer l'intégration et la ventilation</div>
+                    <div class="meta-item"><strong>État</strong>Terminé</div>
+                    <div class="meta-item"><strong>Compétences</strong>Maintenance, câblage, refroidissement</div>
+                </div>
+            </div>
+            <div class="cover">
+                <img src="../img/apres.jpg" alt="Ordinateur remonté dans son nouveau boîtier">
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <h2>Le transfert en quelques mots</h2>
+                <p>
+                    Ce projet consistait à récupérer les composants de mon ancien boîtier et à les installer
+                    dans un nouveau boîtier DeepCool. L'objectif était de repartir sur une base plus propre,
+                    mieux ventilée et plus agréable à utiliser au quotidien.
+                </p>
+                <p>
+                    Le transfert a été réalisé avec méthode afin de protéger la carte mère, la carte graphique
+                    et les différents branchements pendant chaque étape du montage. Les composants ont également
+                    été nettoyés pour retirer la poussière accumulée et améliorer leur refroidissement.
+                </p>
+            </article>
+
+            <article class="panel">
+                <h2>Résultat obtenu</h2>
+                <ul class="highlight-list">
+                    <li>Composants démontés puis réinstallés dans le nouveau boîtier.</li>
+                    <li>Composants et ventilateurs dépoussiérés avant le remontage.</li>
+                    <li>Carte graphique et système de refroidissement remis en place.</li>
+                    <li>Câbles réorganisés pour faciliter la circulation de l'air.</li>
+                    <li>Ordinateur final fonctionnel avec un éclairage bleu visible en façade.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel panel--wide">
+                <h2>Avant / Après</h2>
+                <p>La comparaison montre l'état de l'ancien boîtier avant le démontage, puis le résultat après le transfert des composants.</p>
+                <div class="before-after">
+                    <div class="comparison-card">
+                        <h3>Avant — ancien boîtier</h3>
+                        <p>Configuration ouverte avant le retrait des composants.</p>
+                        <img src="../img/demontage.jpg" alt="Ancien boîtier avant le démontage des composants" loading="lazy">
+                    </div>
+                    <div class="comparison-card">
+                        <h3>Après — nouveau boîtier</h3>
+                        <p>Ordinateur remonté et installé dans le boîtier DeepCool.</p>
+                        <img src="../img/apres.jpg" alt="Ordinateur remonté dans le nouveau boîtier DeepCool" loading="lazy">
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <h2>Étapes réalisées</h2>
+                <ul class="highlight-list">
+                    <li>Arrêt complet du PC et débranchement de l'alimentation.</li>
+                    <li>Retrait de la carte graphique, du refroidissement et des connexions.</li>
+                    <li>Nettoyage délicat des composants, des ventilateurs et des radiateurs.</li>
+                    <li>Démontage de la carte mère et repérage des câbles utiles.</li>
+                    <li>Installation des composants dans le nouveau boîtier.</li>
+                    <li>Raccordement, rangement des câbles et vérification du démarrage.</li>
+                </ul>
+            </article>
+
+            <article class="panel">
+                <h2>Compétences mobilisées</h2>
+                <ul class="tech-list">
+                    <li>Maintenance informatique</li>
+                    <li>Montage PC</li>
+                    <li>Gestion du câblage</li>
+                    <li>Refroidissement</li>
+                    <li>Nettoyage matériel</li>
+                    <li>Diagnostic matériel</li>
+                    <li>Organisation</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

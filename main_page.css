@@ -437,7 +437,7 @@ body {
     color: #c6e2ff;
     font-weight: 400;
     min-height: 2.5rem;
-    animation: fadeInUp 1s ease-out;
+    animation: neonFlicker 2.5s ease-in-out infinite alternate, fadeInUp 1s ease-out;
     text-shadow:
         0 0 6px rgba(202, 228, 225, 0.92),
         0 0 30px rgba(202, 228, 225, 0.34),
@@ -447,89 +447,17 @@ body {
         0 0 54px rgba(30, 132, 242, 0.92);
 }
 
-/* Typewriter */
+/* Rôle avec effet néon */
 .typewriter {
-    --caret: #c6e2ff;
+    display: inline-block;
 }
 
 .typewriter::before {
-    content: "";
-    animation: typewriterRole 9s infinite;
-}
-
-.typewriter::after {
-    content: "";
-    border-right: 2px solid var(--caret);
-    animation: blink 0.5s linear infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-@keyframes typewriterRole {
-    0.00%, 8.00% { content: ""; }
-    9.62% { content: "f"; }
-    11.23% { content: "fu"; }
-    12.85% { content: "fut"; }
-    14.46% { content: "futu"; }
-    16.08% { content: "futur"; }
-    17.69% { content: "futur "; }
-    19.31% { content: "futur a"; }
-    20.92% { content: "futur ad"; }
-    22.54% { content: "futur adm"; }
-    24.15% { content: "futur admin"; }
-    25.77% { content: "futur admini"; }
-    27.38% { content: "futur adminis"; }
-    29.00% { content: "futur administ"; }
-    30.62% { content: "futur administr"; }
-    32.23% { content: "futur administra"; }
-    33.85% { content: "futur administrat"; }
-    35.46% { content: "futur administrate"; }
-    37.08% { content: "futur administrateur"; }
-    38.69% { content: "futur administrateur "; }
-    40.31% { content: "futur administrateur d"; }
-    41.92% { content: "futur administrateur d'"; }
-    43.54% { content: "futur administrateur d'i"; }
-    45.15% { content: "futur administrateur d'in"; }
-    46.77% { content: "futur administrateur d'inf"; }
-    48.38% { content: "futur administrateur d'infr"; }
-    50.00%, 70.00% { content: "futur administrateur d'infrastructure et cloud"; }
-    71.00% { content: "futur administrateur d'infrastructur"; }
-    72.00% { content: "futur administrateur d'infrastructu"; }
-    73.00% { content: "futur administrateur d'infrastruct"; }
-    74.00% { content: "futur administrateur d'infrastr"; }
-    75.00% { content: "futur administrateur d'infras"; }
-    76.00% { content: "futur administrateur d'infr"; }
-    77.00% { content: "futur administrateur d'inf"; }
-    78.00% { content: "futur administrateur d'i"; }
-    79.00% { content: "futur administrateur d'"; }
-    80.00% { content: "futur administrateur d"; }
-    81.00% { content: "futur administrateur "; }
-    82.00% { content: "futur administrateur"; }
-    83.00% { content: "futur administrateu"; }
-    84.00% { content: "futur administrate"; }
-    85.00% { content: "futur administrat"; }
-    86.00% { content: "futur administra"; }
-    87.00% { content: "futur administr"; }
-    88.00% { content: "futur administ"; }
-    89.00% { content: "futur adminis"; }
-    90.00% { content: "futur admini"; }
-    91.00% { content: "futur admin"; }
-    92.00% { content: "futur admi"; }
-    93.00% { content: "futur adm"; }
-    94.00% { content: "futur ad"; }
-    95.00% { content: "futur a"; }
-    96.00%, 100% { content: ""; }
+    content: "Technicien informatique & Pentester";
 }
 
 @media (prefers-reduced-motion) {
-    .typewriter::after {
-        animation: none;
-    }
-    .typewriter::before {
-        content: "futur administrateur d'infrastructure et cloud";
+    .hero-role {
         animation: none;
     }
 }
